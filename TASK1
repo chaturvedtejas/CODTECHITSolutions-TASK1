@@ -1,0 +1,28 @@
+from google.colab import drive
+drive.mount('/content/drive')
+
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.model_selection import train_test_split
+
+# Load the data
+df = pd.read_csv('RawData.csv')
+
+# Encode categorical variables
+le = LabelEncoder()
+df['category'] = le.fit_transform(df['category'])
+
+# Split into features and target
+X = df.drop('target', axis=1)
+y = df['target']
+
+# Split into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Feature scaling (optional)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+print(X_train_scaled[:5, :]) # Print the first 5 rows of all columns of the NumPy array
+print(df.info())
