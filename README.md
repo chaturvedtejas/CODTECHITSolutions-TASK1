@@ -62,6 +62,6 @@ X_test_scaled = scaler.transform(X_test)
 
 Feature scaling is applied to standardize the features in the dataset. This step scales the features so that they have a mean of 0 and a standard deviation of 1, which can improve the performance of certain machine learning algorithms.
 
-**Output**
+**Output:**
 
 ![Screenshot 2024-09-04 172023](https://github.com/user-attachments/assets/bcfb0652-0923-4d02-9b77-97a974f9d1fd)
